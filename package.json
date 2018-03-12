@@ -1,6 +1,7 @@
 {
   "scripts": {
     "api": "node ratingsAPI.js",
+    "dev": "webpack-dev-server",
     "build": "webpack",
     "watch": "webpack --watch",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow \"js/**/*.{js,jsx}\"",
