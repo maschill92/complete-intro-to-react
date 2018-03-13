@@ -4,7 +4,7 @@ import preload from '../data.json';
 
 class Search extends Component {
   state = {
-    searchTerm: 'this is a debug statement'
+    searchTerm: ''
   };
 
   handleSearchTermChange = event => {
@@ -24,7 +24,11 @@ class Search extends Component {
           />
         </header>
         <div>
-          {preload.shows.map(show => <ShowCard key={show.imdbID} {...show} />)}
+          {preload.shows
+            .filter(show =>
+              `${show.title} ${show.description}`.toUpperCase().includes(this.state.searchTerm.toUpperCase())
+            )
+            .map(show => <ShowCard key={show.imdbID} {...show} />)}
         </div>
       </div>
     );
